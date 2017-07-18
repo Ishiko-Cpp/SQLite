@@ -1,0 +1,30 @@
+toolsets = vs2015 vs2013;
+
+vs2015.solutionfile = ../VC14/IshikoSQLite.sln;
+vs2013.solutionfile = ../VC12/IshikoSQLite.sln;
+
+library IshikoSQLite
+{
+    archs = x86 x86_64;
+
+    includedirs += ../../Include/Ishiko/SQLite;
+
+    outputdir = ../../Lib/$(arch);
+    
+    if ($(config) == Debug)
+    {
+        basename = IshikoSQLite-d;
+    }
+
+    headers
+    {
+        ../../Include/Ishiko/SQLite/sqlite3.h
+        ../../Include/Ishiko/SQLite/sqlite3ext.h
+    }
+
+    sources
+    {
+        ../../Source/sqlite3.c
+        ../../Source/shell.c
+    }
+}
