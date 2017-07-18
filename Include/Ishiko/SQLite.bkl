@@ -1,0 +1,12 @@
+setting ISHIKO_SQLITE_ROOT
+{
+    help = "Path to the Ishiko SQLite installation";
+    default = '$(ISHIKO)/SQLite';
+}
+
+template IshikoSQLite
+{
+    includedirs += $(ISHIKO_SQLITE_ROOT)/Include;
+
+    libdirs += $(ISHIKO_SQLITE_ROOT)/Lib/$(arch);
+}
